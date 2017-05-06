@@ -52,3 +52,44 @@ Apache Maven 3.3.3
 
 ================================================================================
 
+Project structure:
+
+.
+├── README
+├── pom.xml
+└── src
+    ├── main
+    │   ├── java
+    │   │   └── com
+    │   │       └── nipra
+    │   │           └── ghost
+    │   │               ├── App.java
+    │   │               ├── ComputerMoveType.java
+    │   │               ├── Constant.java
+    │   │               ├── Game.java
+    │   │               ├── Node.java
+    │   │               ├── Player.java
+    │   │               ├── Trie.java
+    │   │               └── Utils.java
+    │   └── resources
+    │       ├── web2
+    │       └── web2_a
+    └── test
+        └── java
+            └── com
+                └── nipra
+                    └── ghost
+                        └── AppTest.java
+
+12 directories, 13 files
+
+* main method to start the game is in /ghost/src/main/java/com/nipra/ghost/App.java
+* /ghost/src/main/java/com/nipra/ghost/Trie.java has the implementation of Trie data
+  structure used for storing dictionary words.
+* /ghost/src/main/java/com/nipra/ghost/Game.java has the implementation of game.
+
+================================================================================
+
+Notes:
+* Dictionary by default is made of words at least 2 letters long.
+* Dictionary location is src/main/resources/web2
