@@ -34,7 +34,7 @@ public class Game {
    * @param dictionary
    * @param minWordLengthInDict
    */
-  public Game(Trie trie, List<String> dictionary, int minWordLengthInDict) {
+  public Game(Trie trie, List<String> dictionary) {
     this.trie = trie;
     this.dictionary = dictionary;
   }
