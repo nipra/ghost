@@ -1,0 +1,54 @@
+Ghost
+
+Explanation of Gameplay (from Wikipedia):
+A player is chosen at random to start the game, and begins by naming any letter
+of the alphabet. Players then take turns to add letters to this fragment, with
+the aim being to avoid completing an actual word. The player whose turn it is
+may - instead of adding a letter - challenge the previous player to prove that
+the current fragment is actually the beginning of a word. If the challenged
+player can name such a word, the challenger loses the round; otherwise the
+challenged player loses the round. If a player bluffs, or completes a word
+without other players noticing, then play continues.
+
+Implementation Rules:
+* Write the game in your language of choice.
+* Provide a README with instructions on building (if necessary) and running.
+* The game should have a console interface.
+* The game can exit after one round of play.
+* There should be one human player and one computer player.
+* A valid turn response is either a letter or the word "challenge"
+* If the human challenges and the computer knows a matching word, print the
+  word and end the game.
+* If the human challenges and the computer does not know a matching word, admit
+  defeat and end the game.
+* If the computer challenges, the human must enter their response. If the human
+  provides a word, the computer should trust the human and end the game. If the
+  human was bluffing, hitting enter with no word signifies a bluff and the
+  computer wins and ends the game.
+* If the computer catches the human completing a word, announce victory and
+  end the game.
+* You can use any word list as your corpus. As an example, the dictionary file
+  from FreeBSD: https://github.com/freebsd/freebsd/blob/master/share/dict/web2.
+  Include instructions on downloading your word list in your README if you
+  don't provide the word list in your application.
+* Bluffing every turn, while technically valid, is frowned upon. :)
+
+================================================================================
+
+Instruction to start the game:
+
+From the root of the project run following commands:
+$ mvn package
+$ java -jar target/ghost-0.0.1-SNAPSHOT.jar
+
+Java version used:
+$ java -version
+java version "1.8.0_121"
+Java(TM) SE Runtime Environment (build 1.8.0_121-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.121-b13, mixed mode)
+
+Maven version:
+Apache Maven 3.3.3
+
+================================================================================
+
