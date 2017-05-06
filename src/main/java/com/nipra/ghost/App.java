@@ -14,7 +14,7 @@ public class App {
     Trie trie = new Trie();
 
     // Get words for the dictionary. Min length of each word is 2.
-    List<String> dictionary = Utils.getWordsFromDictionaryInResource("web2", 3);
+    List<String> dictionary = Utils.getWordsFromDictionaryInResource("web2", 2);
     Game game = new Game(trie, dictionary);
 
     // Start the game
