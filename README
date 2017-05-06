@@ -87,9 +87,9 @@ Project structure:
 * /ghost/src/main/java/com/nipra/ghost/Trie.java has the implementation of Trie data
   structure used for storing dictionary words.
 * /ghost/src/main/java/com/nipra/ghost/Game.java has the implementation of game.
+* Dictionary location is /ghost/src/main/resources/web2
 
 ================================================================================
 
 Notes:
 * Dictionary by default is made of words at least 2 letters long.
-* Dictionary location is src/main/resources/web2

@@ -13,6 +13,7 @@ import java.util.List;
 public class Utils {
 
   /**
+   * Read lines from a resource file in src/main/resources
    *
    * @param resource
    * @return
@@ -32,12 +33,7 @@ public class Utils {
     return lines;
   }
 
-  /**
-   *
-   * @param minLength
-   * @param lines
-   * @return
-   */
+
   private static List<String> getWordsHelper(int minLength, List<String> lines) {
     List<String> words = new ArrayList<>();
     for (String line : lines) {
@@ -50,7 +46,9 @@ public class Utils {
     return words;
   }
 
+
   /**
+   * Get words from a dictionary file in resource.
    *
    * @param resource
    * @param minLength
@@ -64,7 +62,9 @@ public class Utils {
     return getWordsHelper(minLength, lines);
   }
 
+
   /**
+   * Get words from a dictionary file specified by full path.
    *
    * @param dictionaryFilePath
    * @param minLength
@@ -79,17 +79,4 @@ public class Utils {
 
   }
 
-  /**
-   *
-   * @param args
-   * @throws IOException
-   */
-  public static void main(String[] args) throws IOException {
-    List<String> words =
-        getWords("/Users/nprabhak/Dropbox/Personal/Important/Job Opportunities/Apple/web2_a", 4);
-    System.out.println(words);
-
-    List<String> words2 = getWordsFromDictionaryInResource("web2_a", 5);
-    System.out.println(words2);
-  }
 }

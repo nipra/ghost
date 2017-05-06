@@ -3,15 +3,23 @@ package com.nipra.ghost;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implementation of Trie data structure. https://en.wikipedia.org/wiki/Trie
+ */
 public class Trie {
 
   private Node root;
 
+  /**
+   * The first Trie node (rrot) starts with an empty string.
+   */
   public Trie() {
     this.root = new Node("");
   }
 
+
   /**
+   * Insert the key/word
    *
    * @param key
    */
@@ -36,12 +44,7 @@ public class Trie {
     tempNode.setLeaf(true);
   }
 
-  /**
-   *
-   * @param node
-   * @param prefix
-   * @return
-   */
+
   private String getFirstWordWithPrefixHelper(Node node, String prefix) {
     if (node.isLeaf()) {
       return prefix;
@@ -54,6 +57,7 @@ public class Trie {
 
 
   /**
+   * Get the first word with prefix.
    *
    * @param prefix
    * @return
@@ -75,12 +79,6 @@ public class Trie {
   }
 
 
-  /**
-   *
-   * @param node
-   * @param prefix
-   * @param allWords
-   */
   private void collect(Node node, String prefix, List<String> allWords) {
 
     if (node == null)
@@ -99,6 +97,7 @@ public class Trie {
   }
 
   /**
+   * Get all words with prefix.
    *
    * @param prefix
    * @return

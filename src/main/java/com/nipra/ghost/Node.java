@@ -1,5 +1,8 @@
 package com.nipra.ghost;
 
+/**
+ * Node class to represent each node of Trie data structure.
+ */
 public class Node {
 
   private String character;
@@ -8,12 +11,14 @@ public class Node {
   private boolean visited;
 
   /**
+   * Constructor for Node class. Each node has a character and starts with an empty array of length
+   * the size of number of alphabets in English language.
    *
    * @param character
    */
   public Node(String character) {
     this.character = character;
-    children = new Node[Constant.ALPHABET_SIZE];
+    this.children = new Node[Constant.ALPHABET_SIZE];
   }
 
   public void setChild(int index, Node node) {
@@ -56,6 +61,12 @@ public class Node {
     return children[index];
   }
 
+  /**
+   * Get first child of the node which is not null. Children are sorted by natural order of
+   * characters.
+   *
+   * @return Node
+   */
   public Node getFirstChild() {
     for (int i = 0; i < Constant.ALPHABET_SIZE; i++) {
       Node node = children[i];

@@ -4,31 +4,40 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- *
+ * Implementation of Game. An instance of Game class has states which keep on getting updated as
+ * game progresses. start method starts the game.
  */
 public class Game {
+  // Input string used by a player to indicate that it wants to challenge opponent
   private static final String CHALLENGE = "challenge";
-  private static Player players[] = new Player[] {Player.HUMAN, Player.COMPUTER};
+  // List of players
+  private static final Player players[] = new Player[] {Player.HUMAN, Player.COMPUTER};
+  // List of alphabets valid as input
   private static final char[] alphabets = "abcdefghijklmnopqrstuvwxyz".toCharArray();
-  private static ComputerMoveType computerMoveTypes[] = new ComputerMoveType[] {
+  // Valid moves by computer
+  private static final ComputerMoveType computerMoveTypes[] = new ComputerMoveType[] {
       ComputerMoveType.CHALLENGE_HUMAN, ComputerMoveType.NORMAL};
 
   private Trie trie;
   private List<String> dictionary;
 
+  // Player going to make a move currently
   private Player playerToMakeAMove;
+  // Whether human has been challenged now
   private boolean humanHasBeenChallenged = false;
+  // Whether computer has been challenged now
   private boolean computerHasBeenChallenged = false;
+  // Prefix grows starting with empty string
   private String currentPrefix = "";
+  // Indicates whether game has just started i.e. first valid move is not yet complete
   private boolean startOfGame = true;
 
   /**
+   * Game constructor
    *
    * @param trie
    * @param dictionary
@@ -42,22 +51,6 @@ public class Game {
 
   /**
    *
-   * @return
-   * @throws IOException
-   */
-  public Set<Character> getAllCharsInDict() throws IOException {
-    Set<Character> chars = new TreeSet<>();
-    for (String word : dictionary) {
-      for (char c : word.toCharArray()) {
-        chars.add(c);
-      }
-    }
-
-    return chars;
-  }
-
-  /**
-   *
    * @throws IOException
    */
   public void loadDictionary() throws IOException {
@@ -66,7 +59,9 @@ public class Game {
     }
   }
 
+
   /**
+   * Get all words with prefix in dictionary.
    *
    * @param prefix
    * @return
@@ -76,8 +71,9 @@ public class Game {
   }
 
   /**
+   * Method to decide which player should make the first move.
    *
-   * @return
+   * @return Player
    */
   public Player toss() {
     Random randomNumberGenerator = new Random();
@@ -85,35 +81,42 @@ public class Game {
     return player;
   }
 
+
   /**
+   * Check whether player is a human.
    *
    * @param player
-   * @return
+   * @return boolean
    */
   public boolean isHuman(Player player) {
     return player.equals(Player.HUMAN);
   }
 
+
   /**
+   * Check whether player is a computer.
    *
    * @param player
-   * @return
+   * @return boolean
    */
   public boolean isComputer(Player player) {
     return player.equals(Player.COMPUTER);
   }
 
+
   /**
+   * Check whether input provided in a move is a challenge to opponent.
    *
    * @param input
-   * @return
+   * @return boolean
    */
   public boolean isAChallenge(String input) {
     return input.equals(CHALLENGE);
   }
 
+
   /**
-   *
+   * After each valid move toggle player to make the next move.
    */
   public void togglePlayerToMakeAMove() {
     if (isHuman(playerToMakeAMove)) {
@@ -123,19 +126,23 @@ public class Game {
     }
   }
 
+
   /**
+   * Check whether human is bluffing.
    *
    * @param input
-   * @return
+   * @return boolean
    */
   public boolean isHumanBluffing(String input) {
     return input.isEmpty();
   }
 
+
   /**
+   * Check whether input provided by player is valid.
    *
    * @param input
-   * @return
+   * @return boolean
    */
   public boolean inputIsValid(String input) {
     String trimmed = input.trim();
@@ -157,7 +164,9 @@ public class Game {
 
   }
 
+
   /**
+   * Sanitize/massage input. Trim it. Convert to lowercase.
    *
    * @param input
    * @return
@@ -166,10 +175,12 @@ public class Game {
     return input.trim().toLowerCase();
   }
 
+
   /**
+   * Check whether player has challenged the opponent.
    *
    * @param input
-   * @return
+   * @return boolean
    */
   public boolean playerHasChallenged(String input) {
     if (input != null) {
@@ -179,9 +190,11 @@ public class Game {
     return false;
   }
 
+
   /**
+   * Get a random alphabet
    *
-   * @return
+   * @return String
    */
   public String getAlphabetRandomly() {
     Random randomNumberGenerator = new Random();
@@ -190,18 +203,21 @@ public class Game {
   }
 
   /**
+   * Get a random computer move type.
    *
-   * @return
+   * @return ComputerMoveType
    */
   public ComputerMoveType getComputerMoveTypeRandomly() {
     Random randomNumberGenerator = new Random();
     return computerMoveTypes[randomNumberGenerator.nextInt(computerMoveTypes.length)];
   }
 
+
   /**
+   * Method to get input from console.
    *
    * @param scanner
-   * @return
+   * @return String
    */
   public String getInputFromConsole(Scanner scanner) {
     if (startOfGame) {
@@ -223,7 +239,7 @@ public class Game {
 
 
   /**
-   *
+   * Start the game!
    */
   public void start() {
     try {
