@@ -92,4 +92,52 @@ Project structure:
 ================================================================================
 
 Notes:
-* Dictionary by default is made of words at least 2 letters long.
+* Dictionary by default is made of words at least 3 letters long.
+
+================================================================================
+
+Sample play sessions:
+
+$ java -jar target/ghost-0.0.1-SNAPSHOT.jar
+Let's start the game...
+Enter a letter or challenge: h
+Computer chose: s
+Current word: hs
+Enter a letter or challenge: i
+Hello human! I caught you completing a word. You lose!
+Word found: hsi
+
+$ java -jar target/ghost-0.0.1-SNAPSHOT.jar
+Computer chose: z
+Current word: z
+Enter a letter or challenge: a
+Computer chose: g
+Current word: zag
+Enter a letter or challenge: z
+Computer chose: c
+Current word: zagzc
+Enter a letter or challenge: challenge
+Computer couldn't find the word. Human won!!
+
+$ java -jar target/ghost-0.0.1-SNAPSHOT.jar
+Let's start the game...
+Enter a letter or challenge: i
+Computer chose: v
+Current word: iv
+Enter a letter or challenge: y
+Hello human! I caught you completing a word. You lose!
+Word found: ivy
+
+$ java -jar target/ghost-0.0.1-SNAPSHOT.jar
+Let's start the game...
+Enter a letter or challenge: challenge
+A challenge can not be made at the start of the game...
+Let's start the game...
+Enter a letter or challenge: a
+Computer chose: o
+Current word: ao
+Enter a letter or challenge: l
+Current word: aol
+You have been challenged by computer...
+Please enter your response: asdf
+Computer lost!!!
