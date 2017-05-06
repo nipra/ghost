@@ -10,13 +10,13 @@ import java.util.List;
 
 public class App {
   public static void main(String[] args) throws IOException {
-    String dictionaryFile =
-        "/Users/nprabhak/Dropbox/Personal/Important/Job Opportunities/Apple/web2";
+    // Trie data structure to store all dictionary words
     Trie trie = new Trie();
-    // List<String> dictionary = Utils.getWords(dictionaryFile, 2);
+    // Get words for the dictionary. Min length of each word is 2.
     List<String> dictionary = Utils.getWordsFromDictionaryInResource("web2", 2);
-    Game game = new Game(trie, dictionary, 3);
+    Game game = new Game(trie, dictionary);
 
+    // Start the game
     game.start();
   }
 }
